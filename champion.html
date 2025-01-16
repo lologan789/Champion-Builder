@@ -138,6 +138,9 @@
             championNameElement.textContent = "Aucun champion sélectionné";
         }
 
+        // Liste pour suivre les items déjà affichés
+        const displayedItems = new Set();
+
         // Charger les données des items
         const appItems = getAllItems(); // Cette fonction retourne les items à afficher
         fetch(itemApiUrl)
@@ -148,7 +151,9 @@
                 // Filtrer et afficher les items
                 for (const key in items) {
                     const item = items[key];
-                    if (item.maps && appItems.includes(item.name)) {
+
+                    // Vérifiez si l'item doit être affiché et n'a pas encore été affiché
+                    if (item.maps && appItems.includes(item.name) && !displayedItems.has(item.name)) {
                         const itemDiv = document.createElement("div");
                         itemDiv.innerHTML = `
                             <img src="${itemImageBaseUrl}${item.image.full}" alt="${item.name}">
@@ -157,6 +162,9 @@
                         itemDiv.addEventListener('click', () => addItemToTable(item, itemDiv));
                         availableItems.push(item);
                         itemsContainer.appendChild(itemDiv);
+
+                        // Ajouter l'item à la liste des items affichés
+                        displayedItems.add(item.name);
                     }
                 }
             })
