@@ -93,10 +93,6 @@
         <!-- Bouton de vérification -->
         <button onclick="verifyItemsCompatibility()">Vérifier les objets</button>
 
-        <table id="selected-items">
-        <!-- Lignes d'items sélectionnés -->
-        </table>
-
     </div>
 
     <!-- Conteneur pour les items disponibles -->
@@ -201,7 +197,8 @@
 
         function updateItemBorder(item, champion, itemRow) {
             // Vérifier si l'item est compatible avec le champion
-            const isCompatible = verificationObjet(item, champion);
+
+            const isCompatible = verificationObjet(champion, item);  // Fonction à implémenter
 
             // Modifier le contour de l'item dans le tableau
             if (isCompatible) {
@@ -212,13 +209,19 @@
         }
 
         function verifyItemsCompatibility() {
-            const itemsRows = document.querySelectorAll("#selected-items tr");
+            const itemsRows = document.querySelectorAll("#item-table div");
 
             itemsRows.forEach(row => {
-                const itemName = row.querySelector(".item-name").textContent;  // Récupérer le nom de l'item
-                updateItemBorder(itemName, championName, row);  // Vérifier la compatibilité et mettre à jour la couleur du contour
+                const imgElement = row.querySelector("img");  // Récupérer l'élément <img> à l'intérieur du div
+                const itemName = imgElement ? imgElement.getAttribute('alt') : '';  // Récupérer l'attribut alt de l'image
+                
+                // Vérifier si itemName est valide avant de mettre à jour la bordure
+                if (itemName) {
+                    updateItemBorder(itemName, championName, row);  // Vérifier la compatibilité et mettre à jour la couleur du contour
+                }
             });
         }
+
 
     </script>
 </body>
