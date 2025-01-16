@@ -49,6 +49,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
         }
 
         #items-container {
@@ -66,6 +67,7 @@
         #items-container img {
             width: 80px;
             height: auto;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -110,6 +112,9 @@
         const championNameElement = document.getElementById("champion-name");
         const championImageElement = document.getElementById("champion-image");
         const itemsContainer = document.getElementById("items-container");
+        const itemTable = document.getElementById("item-table");
+
+        let availableItems = [];
 
         // Charger les données du champion
         if (championName) {
@@ -144,6 +149,8 @@
                             <img src="${itemImageBaseUrl}${item.image.full}" alt="${item.name}">
                             <p>${item.name}</p>
                         `;
+                        itemDiv.addEventListener('click', () => addItemToTable(item, itemDiv));
+                        availableItems.push(item);
                         itemsContainer.appendChild(itemDiv);
                     }
                 }
@@ -151,6 +158,37 @@
             .catch(error => {
                 console.error("Erreur lors de la récupération des données des items :", error);
             });
+
+        // Fonction pour ajouter un item dans le tableau
+        function addItemToTable(item, itemDiv) {
+            const emptySlot = Array.from(itemTable.children).find(slot => !slot.hasChildNodes());
+            if (emptySlot) {
+                const itemImageDiv = document.createElement("div");
+                itemImageDiv.innerHTML = `<img src="${itemImageBaseUrl}${item.image.full}" alt="${item.name}">`;
+                itemImageDiv.addEventListener('click', () => removeItemFromTable(itemImageDiv, item, itemDiv));
+
+                emptySlot.appendChild(itemImageDiv);
+
+                // Retirer l'item de la liste des items disponibles
+                itemsContainer.removeChild(itemDiv);
+                availableItems = availableItems.filter(i => i !== item);
+            }
+        }
+
+        // Fonction pour retirer un item du tableau et le remettre dans la liste
+        function removeItemFromTable(itemImageDiv, item, itemDiv) {
+            itemImageDiv.parentNode.innerHTML = ""; // Vide la case
+
+            // Ajouter l'item de nouveau dans la liste des items disponibles
+            const newItemDiv = document.createElement("div");
+            newItemDiv.innerHTML = `
+                <img src="${itemImageBaseUrl}${item.image.full}" alt="${item.name}">
+                <p>${item.name}</p>
+            `;
+            newItemDiv.addEventListener('click', () => addItemToTable(item, newItemDiv));
+            itemsContainer.appendChild(newItemDiv);
+            availableItems.push(item);
+        }
     </script>
 </body>
 </html>
