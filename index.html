@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Chanpion Builder</title>
+    <title>Champion Builder</title>
 </head>
 <header>
     <h1>Champions LoL</h1>
 </header>
 <body>
+    <!-- Barre de recherche -->
+    <div style="text-align: center; margin: 20px;">
+        <input 
+            type="text" 
+            id="search-bar" 
+            placeholder="Rechercher un champion..." 
+            style="padding: 10px; width: 50%; font-size: 16px;"
+        >
+    </div>
+
     <div id="champions-container" style="display: flex; flex-wrap: wrap; gap: 10px; padding: 2%;"></div>
 
     <script src='data.js'></script>
@@ -22,35 +32,56 @@
 
         // Conteneur pour afficher les champions
         const container = document.getElementById("champions-container");
+        const searchBar = document.getElementById("search-bar");
+
+        let allChampions = {}; // Variable pour stocker les champions
+
+        // Fonction pour afficher les champions
+        const displayChampions = (champions) => {
+            container.innerHTML = ""; // Réinitialiser le conteneur
+
+            for (const key in champions) {
+                const champion = champions[key];
+                const imagePath = baseImageUrl + champion.image.full;
+
+                // Créer un élément pour chaque champion
+                const championDiv = document.createElement("div");
+                championDiv.style.textAlign = "center";
+                championDiv.innerHTML = `
+                    <a href="champion.html?name=${champion.id}" style="cursor:pointer;">
+                        <img src="${imagePath}" alt="${champion.name}" style="width: 100px; height: auto;">
+                    </a>
+                    <p>${champion.name}</p>
+                `;
+
+                // Ajouter au conteneur
+                container.appendChild(championDiv);
+            }
+        };
 
         // Récupérer les données des champions
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
-                const champions = data.data;
-
-                // Parcourir les champions et créer des éléments HTML
-                for (const key in champions) {
-                    const champion = champions[key];
-                    const imagePath = baseImageUrl + champion.image.full;
-
-                    // Créer un élément pour chaque champion
-                    const championDiv = document.createElement("div");
-                    championDiv.style.textAlign = "center";
-                    championDiv.innerHTML = `
-                        <a href="champion.html?name=${champion.id}" style="cursor:pointer;">
-                            <img src="${imagePath}" alt="${champion.name}" style="width: 100px; height: auto;">
-                        </a>
-                        <p>${champion.name}</p>
-                    `;
-
-                    // Ajouter au conteneur
-                    container.appendChild(championDiv);
-                }
+                allChampions = data.data; // Stocker tous les champions
+                displayChampions(allChampions); // Afficher les champions au chargement
             })
             .catch(error => {
                 console.error("Erreur lors de la récupération des données :", error);
             });
+
+        // Filtrer les champions en fonction de la recherche
+        searchBar.addEventListener("input", (event) => {
+            const searchQuery = event.target.value.toLowerCase(); // Récupérer la valeur de la barre de recherche
+            const filteredChampions = Object.keys(allChampions)
+                .filter(key => allChampions[key].name.toLowerCase().includes(searchQuery)) // Filtrer par nom
+                .reduce((obj, key) => {
+                    obj[key] = allChampions[key];
+                    return obj;
+                }, {});
+
+            displayChampions(filteredChampions); // Réafficher les champions filtrés
+        });
     </script>
 </body>
 <footer>
