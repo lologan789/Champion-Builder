@@ -30,6 +30,11 @@ Tank
             - Shen
             - Dr.Mundo
             - Rell
+            - Skarner
+            - Nunu & Willump
+        
+        Range
+            - Thresh
 
     AD
         Melee
@@ -51,7 +56,6 @@ Bruiser
             - Udyr
             - Volibear
             
-        Range
     AD
         Melee
             - Aatrox
@@ -74,6 +78,10 @@ Bruiser
             - Renekton
             - Nasus
             - Tryndamere
+            - Viego
+            - Warwick
+            - Trundle
+            - Jarvan IV
 
         Range
             - Urgot
@@ -84,6 +92,7 @@ Marksman
         Melee
             - Yone 
             - Yasuo
+            - Master Yi
         Range
             - Akshan
             - Aphelios
@@ -106,6 +115,12 @@ Marksman
             - Vayne
             - Xayah
             - Zeri
+            - Smolder
+            - Senna
+    AP
+        Range
+            - Teemo
+            - Kayle
 
 Mage
     AP
@@ -145,6 +160,7 @@ Mage
             - Zyra
             - Zilean
             - Seraphine
+            - Vex
 
 Assassin
     AP
@@ -192,356 +208,176 @@ Enchanter
             - Sona
             - Soraka
             - Yuumi
-`
-const Toplaner =
-`
-Tank
-    Ap
-        Melee
-            - Maokai
-            - Malphite
-            - Ornn
-            - Cho'Gath
-    Ad
-        Melee
-            - Sion
-            - K'Sante
-            - Illaoi
-Bruiser
-    Ap
-        Melee
-            - Mordekaiser
-            - Rumble
-            - Singed
-            - Gwen
-    Ad
-        Melee
-            - Darius
-            - Garen
-            - Yorick
-            - Sett
-            - Jax
-        Ranged
-            - Urgot
-            - Gnar
-Marksman
-    Ad
-        Ranged
-            - Quinn
-    Ap
-        Ranged
-            - Teemo
-            - Kayle
-Mage
-    Ap
-        Melee
-            - Gragas
-        Ranged
-            - Kennen
-            - Vladimir
-            - Heimerdinger
+            - Milio
 `
 
-const Jungler =
+
+const items = 
 `
 Tank
-    Ap
-        Melee
-            - Zac
-            - Sejuani
-            - Amumu
-    Ad
-        Melee
-            - Udyr
+    HP
+        - HearthSteel
+        - Warmog
+        - Titanic Hydra
+    Armor
+        - Thornmail
+        - Sunfire
+        - Randuin
+        - Frozen Heart
+        - Dead Man's Plate
+    MR
+        - Spirit Visage
+        - Abyssal Mask
+        - Kaenic Rookern
+        - Hollow Radiance
+        - Force of Nature
+    Durability
+        - Unending Despair
+        - Fimbulwinter
+        - Jak'Sho, The Protean    
+
 Bruiser
-    Ap
-        Melee
-            - Shyvana
-            - Diana
-    Ad
-        Melee
-            - Wukong
-            - Lee Sin
-            - Xin Zhao
-            - Vi
-            - Briar
-Marksman
-    Ad
-        Melee
-            - Belveth
-            - Master Yi
-        Ranged
-            - Kindred
-Mage
-    Ap
-        Melee
-            - Nunu
-            - Ekko
-        Ranged
-            - Fiddlesticks
-            - Karthus
-            - Lillia
-Assassin
-    Ad
-        Melee
-            - Kha'Zix
-            - Rengar
-            - Shaco
-        Ranged
-            - Graves
-    Ap
-        Melee
-            - Evelynn
+    AD 
+        Damage
+            - Trinity Force
+            - Stridebreaker
+            - Black Cleaver
+            - Spear of Shojin
+        LifeSteal
+            - Blade of the Ruined King
+            - Ravenous Hydra
+        Durability
+            - Guardian Angel
+            - Spirit Visage
+            - Sterak Gage
+            - Death's Dance
+            - Malmortius
+            - Sundered Sky
+            - Wit's End
+            - Titanic Hydra
+
+    AP
+        Damage
+            - Hextech Rocketbelt
+            - Lich Bane
+            - Blackfire Torch
+        HP
+            - Rylai
+            - Liandry
+        Durability
+            - Riftmaker
+            - Zhonya's Hourglass
+            - Banshee's Veil
+            - Rod of Ages
+            - Jak'Sho, The Protean
+        AS
+            - Nashor's Tooth
+        Burst
+            - Rabadon's Deathcap
+            - Stormsurge
+            - Shadowflame
 Enchanter
-    Ap
-        Ranged
-            - Ivern
-`
-
-const Midlaner =
-`
-Tank
-    Ap
-        Melee
-            - Galio
-Bruiser
-    Ap
-        Melee
-            - Sylas
-            - Kassadin
-        Range
-            - Cassiopeia
-    Ad
-        Melee
-            - Yasuo
-            - Yone
-Marksman
-    Ad
-        Ranged
-            - Akshan
-    Ap
-        Ranged
-            - Twisted Fate
-Mage
-    Ap
-        Ranged
-            - Ahri
-            - Anivia
-            - Viktor
-            - Syndra
+    Mobility
+        - Shurelya
+    Regen
+        - Redemption
+        - Moonstone
+    Utility
+        - Mikael
+        - Ardent Censer
+        - Staff of Flowing Water
+        - Locket of the Iron Solari
+        - Imperial Mandate
+        - Echoes of Helia
 Assassin
     Ad
-        Melee
-            - Zed
-            - Talon
+        Damage
+            - Profane Hydra
+            - Collector
+            - Hubris
+            - Axiom Arc
+            - Voltaic Cyclosword
+            - Spear of Shojin
+        Mobility
+            - Youmuu's Ghostblade
+            - Opportunity
+        ArmorPen
+            - Serylda
+            - Black Cleaver
+            - Serpent's Fang
+        Survivability
+            - Edge of Night
+            - Death's Dance
+            - Malmortius
+            - Guardian Angel
+            - Sterak's Gage
+            - Sundered Sky
     Ap
-        Melee
-            - Fizz
-            - Katarina
-            - Akali
-        Ranged
-            - LeBlanc
-`
-
-const Botlaner =
-`
-Marksman
-    Ad
-        Ranged
-            - Jinx
-            - Ashe
-            - Miss Fortune
-            - Caitlyn
-            - Tristana
-    Ap
-        Ranged
-            - Kai'Sa
-            - Varus
-            - Kog'Maw
-`
-
-const Support =
-`
-Tank
-    Ap
-        Melee
-            - Tahm Kench
-            - Leona
-            - Taric
-            - Braum
-Marksman
-    Ad
-        Ranged
-            - Senna
+        MagicPen
+            - Void Staff
+            - Bloodletter's Curse
+        Burst
+            - Stormsurge
+            - Shadowflame
+            - Lich Bane
+            - Rabadon's Deathcap
+        Mobility
+            - Hextech Rocketbelt
+        Survivability
+            - Zhonya's Hourglass
+            - Banshee's Veil
+            - Cryptbloom
+        AS
+            - Nashor's Tooth
 Mage
-    Ap
-        Ranged
-            - Velkoz
-            - Zyra
-            - Brand
-            - Xerath
-Assassin
-    Ad
-        Melee
-            - Pyke
-            - Pantheon
-Enchanter
-    Ap
-        Ranged
-            - Lulu
-            - Janna
-            - Nami
-            - Soraka
-            - Seraphine
+    AS
+        - Nashor's Tooth
+    Burst
+        - Luden's Companion
+        - Rabadon's Deathcap
+        - Shadowflame
+        - Stormsurge
+        - Horizon Focus
+    Survivability
+        - Seraphin
+        - Rod of Ages
+        - Zhonya
+        - Banshee
+    MagicPen
+        - Void Staff
+    Poke
+        - Blackfire Torch
+        - Liandry
+        - Morellonomicon
+    CDR
+        - Cosmic Drive
+        - Malignance
+Marksman
+    Damage
+        - The Collector
+    AS
+        - Static Shiv
+        - Rapid Firecannon
+        - Runaan's Hurricane
+    Crit
+        - Infinity Edge
+        - Yun Tal Wildarrows
+        - Collector
+    Lifesteal
+        - Bloodthirster
+        - Blade of the Ruined King
+    ArmorPen
+        - Lord Dominik's Regards
+        - Mortal Reminder
+    Mobility
+        - Phantom Dancer
+    OnHit
+        - Kraken Slayer
+        - Guinsoo's Rageblade
+        - Terminus
+    Survivability
+        - Guardian Angel
 `
-const items = {
-    "Tank": {
-        "HP": [
-            "HearthSteel",
-            "Warmog"
-        ],
-        "Armor": [
-            "Thornmail",
-            "Sunfire",
-            "Randuin"
-        ],
-        "MR": [
-            "Spirit Visage",
-            "Abyssal Mask",
-            "Force de la nature"
-        ]
-    },
-    "Bruiser": {
-        "AD": {
-            "HP": [
-                "Sterak Gage",
-                "Black Cleaver"
-            ],
-            "Sustain": [
-                "Sundered Sky",
-                "Voracious Hydra",
-                "Guardian Angel",
-                "Death's Dance",
-                "Malmortius"
-            ],
-            "Damage": [
-                "Trinity",
-                "Stridebreaker"
-            ],
-            "LifeSteal": [
-                "Blade of the Ruined King"
-            ]
-        },
-        "AP": {
-            "HP": [
-                "Rylai",
-                "Liandry"
-            ],
-            "Sustain": [
-                "Riftmaker"
-            ]
-        }
-    },
-    "Enchanter": {
-        "Mobility": [
-            "Shurelya"
-        ],
-        "Regen": [
-            "Redemption",
-            "Moonstone"
-        ],
-        "Utility": [
-            "Mikael",
-            "Ardent Censer",
-            "Staff of Flowing Water",
-            "Locket of the Iron Solari"
-        ]
-    },
-    "Assassin": {
-        "Ad": {
-            "Lethality": [
-                "Duskblade",
-                "Edge of Night",
-                "Collector"
-            ],
-            "Mobility": [
-                "Youmuu",
-                "Opportunity"
-            ],
-            "ArmorPen": [
-                "Serylda"
-            ]
-        },
-        "Ap": {
-            "MagicPen": [
-                "Void Staff",
-                "Bloodletter's Curse"
-            ],
-            "Burst": [
-                "Stormsurge",
-                "Shadowflame",
-                "Licthbane"
-            ],
-            "Mobility": [
-                "Rocketbelt"
-            ]
-        }
-    },
-    "Mage": {
-        "AS": [
-            "Nashor's Tooth"
-        ],
-        "Burst": [
-            "Luden Companion"
-        ],
-        "Sustain": [
-            "Seraphin",
-            "Rod of Ages",
-            "Zhonya",
-            "Banshee"
-        ],
-        "MagicPen": [
-            "Void Staff"
-        ],
-        "Poke": [
-            "Blackfire Torch",
-            "Liandry"
-        ],
-        "CDR": [
-            "Cosmic Drive",
-            "Malignance"
-        ]
-    },
-    "Marksman": {
-        "AS": [
-            "Static Shiv",
-            "Rapid Firecannon",
-            "Runaan's Hurricane"
-        ],
-        "Crit": [
-            "Infinity Edge",
-            "Yun Tai",
-            "Collector"
-        ],
-        "Lifesteal": [
-            "Bloodthirster",
-            "Blade of the Ruined King"
-        ],
-        "ArmorPen": [
-            "Lord Dominik's Regards",
-            "Mortal Reminder"
-        ],
-        "Mobility": [
-            "Phantom Dancer"
-        ],
-        "OnHit": [
-            "Kraken Slayer",
-            "Guinsoo's Rageblade",
-            "Terminus"
-        ]
-    }
-}
-
 
 const getAllItems = (data) => {
     const items = [];
