@@ -14,6 +14,7 @@
     <h2>Items disponibles</h2>
     <div id="items-container"></div>
 
+    <script src='data.js'></script>
     <script>
         // Récupérer le paramètre d'URL pour le nom du champion
         const urlParams = new URLSearchParams(window.location.search);
@@ -31,6 +32,7 @@
         const championNameElement = document.getElementById("champion-name");
         const championImageElement = document.getElementById("champion-image");
         const itemsContainer = document.getElementById("items-container");
+        const appItems = getAllItems();
 
         // Charger les données du champion
         if (championName) {
@@ -58,7 +60,12 @@
                 // Filtrer et afficher les items où maps["30"] = true et group === "item"
                 for (const key in items) {
                     const item = items[key];
-                    if (item.maps && item.maps["30"] === true && item.maps["11"] === false && item.maps["12"] === false && item.maps["21"] === false && item.maps["22"] === false && item.maps["33"] === false && item.image.group === "item" && item.gold.purchasable === true) {
+                    console.log(item.name);
+                    if (item.maps && 
+                    appItems.array.forEach(element => {
+                        element == item.name;
+                    })) 
+                    {
                         const itemDiv = document.createElement("div");
                         itemDiv.innerHTML = `
                             <img src="${itemImageBaseUrl}${item.image.full}" alt="${item.name}">
