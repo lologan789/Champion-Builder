@@ -1,9 +1,3 @@
-attributs:
-    - Top / Mid / Bot / Jungle / Support
-    - Tank / Bruiser / Assassin / Mage / Marksman / Enchanter 
-    - AD / AP
-    - Melee / Ranged
-
 const Toplaner =
 `
 Tank
@@ -205,112 +199,173 @@ Enchanter
             - Soraka
             - Seraphine
 `
-const items = 
-`
-Tank
-    HP
-        - HearthSteel
-        - Warmog
-    Armor
-        - Thornmail
-        - Sunfire
-        - Randuin
-    MR
-        - Spirit Visage
-        - Abyssal Mask
-        - Force de la nature
-Bruiser
-    AD
-        HP
-            - Sterak Gage
-            - Black Cleaver
-        Sustain
-            - Sundered Sky
-            - Voracious Hydra
-            - Guardian Angel
-            - Death's Dance
-            - Malmortius
-        Damage
-            - Trinity
-            - Stridebreaker
-        LifeSteal
-            - Blade of the Ruined King
+const items = {
+    "Tank": {
+        "HP": [
+            "HearthSteel",
+            "Warmog"
+        ],
+        "Armor": [
+            "Thornmail",
+            "Sunfire",
+            "Randuin"
+        ],
+        "MR": [
+            "Spirit Visage",
+            "Abyssal Mask",
+            "Force de la nature"
+        ]
+    },
+    "Bruiser": {
+        "AD": {
+            "HP": [
+                "Sterak Gage",
+                "Black Cleaver"
+            ],
+            "Sustain": [
+                "Sundered Sky",
+                "Voracious Hydra",
+                "Guardian Angel",
+                "Death's Dance",
+                "Malmortius"
+            ],
+            "Damage": [
+                "Trinity",
+                "Stridebreaker"
+            ],
+            "LifeSteal": [
+                "Blade of the Ruined King"
+            ]
+        },
+        "AP": {
+            "HP": [
+                "Rylai",
+                "Liandry"
+            ],
+            "Sustain": [
+                "Riftmaker"
+            ]
+        }
+    },
+    "Enchanter": {
+        "Mobility": [
+            "Shurelya"
+        ],
+        "Regen": [
+            "Redemption",
+            "Moonstone"
+        ],
+        "Utility": [
+            "Mikael",
+            "Ardent Censer",
+            "Staff of Flowing Water",
+            "Locket of the Iron Solari"
+        ]
+    },
+    "Assassin": {
+        "Ad": {
+            "Lethality": [
+                "Duskblade",
+                "Edge of Night",
+                "Collector"
+            ],
+            "Mobility": [
+                "Youmuu",
+                "Opportunity"
+            ],
+            "ArmorPen": [
+                "Serylda"
+            ]
+        },
+        "Ap": {
+            "MagicPen": [
+                "Void Staff",
+                "Bloodletter's Curse"
+            ],
+            "Burst": [
+                "Stormsurge",
+                "Shadowflame",
+                "Licthbane"
+            ],
+            "Mobility": [
+                "Rocketbelt"
+            ]
+        }
+    },
+    "Mage": {
+        "AS": [
+            "Nashor's Tooth"
+        ],
+        "Burst": [
+            "Luden Companion"
+        ],
+        "Sustain": [
+            "Seraphin",
+            "Rod of Ages",
+            "Zhonya",
+            "Banshee"
+        ],
+        "MagicPen": [
+            "Void Staff"
+        ],
+        "Poke": [
+            "Blackfire Torch",
+            "Liandry"
+        ],
+        "CDR": [
+            "Cosmic Drive",
+            "Malignance"
+        ]
+    },
+    "Marksman": {
+        "AS": [
+            "Static Shiv",
+            "Rapid Firecannon",
+            "Runaan's Hurricane"
+        ],
+        "Crit": [
+            "Infinity Edge",
+            "Yun Tai",
+            "Collector"
+        ],
+        "Lifesteal": [
+            "Bloodthirster",
+            "Blade of the Ruined King"
+        ],
+        "ArmorPen": [
+            "Lord Dominik's Regards",
+            "Mortal Reminder"
+        ],
+        "Mobility": [
+            "Phantom Dancer"
+        ],
+        "OnHit": [
+            "Kraken Slayer",
+            "Guinsoo's Rageblade",
+            "Terminus"
+        ]
+    }
+}
 
-    AP
-        HP
-            - Rylai
-            - Liandry
-        Sustain
-            - Riftmaker
-Enchanter
-    Mobility
-        - Shurelya
-    Regen
-        - Redemption
-        - Moonstone
-    Utility
-        - Mikael
-        - Ardent Censer
-        - Staff of Flowing Water
-        - Locket of the Iron Solari
-Assassin
-    Ad
-        Lethality
-            - Duskblade
-            - Edge of Night
-            - Collector
-        Mobility
-            - Youmuu
-            - Opportunity
-        ArmorPen
-            - Serylda
-    Ap
-        MagicPen
-            - Void Staff
-            - Bloodletter's Curse
-        Burst
-            - Stormsurge
-            - Shadowflame
-            - Licthbane
-        Mobility
-            - Rocketbelt
-Mage
-    AS
-        - Nashor's Tooth
-    Burst
-        - Luden Companion
-    Sustain
-        - Seraphin
-        - Rod of Ages
-        - Zhonya
-        - Banshee
-    MagicPen
-        - Void Staff
-    Poke
-        - Blackfire Torch
-        - Liandry
-    CDR
-        - Cosmic Drive
-        - Malignance
-Marksman
-    AS
-        - Static Shiv
-        - Rapid Firecannon
-        - Runaan's Hurricane
-    Crit
-        - Infinity Edge
-        - Yun Tai
-        - Collector
-    Lifesteal
-        - Bloodthirster
-        - Blade of the Ruined King
-    ArmorPen
-        - Lord Dominik's Regards
-        - Mortal Reminder
-    Mobility
-        - Phantom Dancer
-    OnHit
-        - Kraken Slayer
-        - Guinsoo's Rageblade
-        - Terminus
-`
+
+const getAllItems = (data) => {
+    const items = [];
+
+    const traverse = (obj) => {
+        for (const key in obj) {
+            if (Array.isArray(obj[key])) {
+                // Si la valeur est une liste, on ajoute ses éléments
+                items.push(...obj[key]);
+            } else if (typeof obj[key] === "object") {
+                // Si la valeur est un objet, on le parcourt récursivement
+                traverse(obj[key]);
+            }
+        }
+    };
+
+    traverse(data);
+    return items;
+};
+
+const allItems = getAllItems(items);
+console.log(allItems);
