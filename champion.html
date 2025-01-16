@@ -88,6 +88,14 @@
             <div></div>
             <div></div>
         </div>
+
+        <!-- Bouton de vérification -->
+        <button onclick="verifyItemsCompatibility()">Vérifier les objets</button>
+
+        <table id="selected-items">
+        <!-- Lignes d'items sélectionnés -->
+        </table>
+
     </div>
 
     <!-- Conteneur pour les items disponibles -->
@@ -189,6 +197,28 @@
             itemsContainer.appendChild(newItemDiv);
             availableItems.push(item);
         }
+
+        function updateItemBorder(item, champion, itemRow) {
+            // Vérifier si l'item est compatible avec le champion
+            const isCompatible = verificationObjet(item, champion);
+
+            // Modifier le contour de l'item dans le tableau
+            if (isCompatible) {
+                itemRow.style.borderColor = 'green';  // Compatible
+            } else {
+                itemRow.style.borderColor = 'red';    // Non compatible
+            }
+        }
+
+        function verifyItemsCompatibility() {
+            const itemsRows = document.querySelectorAll("#selected-items tr");
+
+            itemsRows.forEach(row => {
+                const itemName = row.querySelector(".item-name").textContent;  // Récupérer le nom de l'item
+                updateItemBorder(itemName, championName, row);  // Vérifier la compatibilité et mettre à jour la couleur du contour
+            });
+        }
+
     </script>
 </body>
 </html>

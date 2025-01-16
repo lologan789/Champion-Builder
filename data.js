@@ -483,3 +483,86 @@ const getAllItems = () => {
     traverse(items);
     return appItems;
 };
+
+function getChampionType(championName) {
+    // Vérifier dans l'ontologie le type du champion (Tank, Bruiser, etc.)
+    for (let type in champion["Champions"]) {
+        for (let special in champion["Champions"][type]) {
+            for (let role in champion["Champions"][type][special]) {
+                if (champion["Champions"][type][special][role].includes(championName)) {
+                    return type;
+                }
+            }
+        }
+    }
+    return null; // Si le champion n'est pas trouvé
+}
+
+function getChampionSpecialization(championName) {
+    // Identifie la spécialisation du champion (AP, AD)
+    for (let type in champion["Champions"]) {
+        for (let special in champion["Champions"][type]) {
+            for (let role in champion["Champions"][type][special]) {
+                if (champion["Champions"][type][special][role].includes(championName)) {
+                    return special;
+                }
+            }
+        }
+    }
+    return null; // Si la spécialisation n'est pas trouvée
+}
+
+function getItemType(objet) {
+    // Vérifier le type de l'objet (Tank, Bruiser, etc.)
+    for (let type in items) {
+        for (let specialization in items[type]) {
+            for (let category in items[type][specialization]) {
+                if (items[type][specialization][category].includes(objet)) {
+                    return type;
+                }
+            }
+        }
+    }
+    return null; // Si l'objet n'est pas trouvé
+}
+
+function getItemSpecialization(objet) {
+    // Identifier la spécialisation de l'objet (AD, AP, etc.)
+    for (let type in items) {
+        for (let specialization in items[type]) {
+            for (let category in items[type][specialization]) {
+                if (items[type][specialization][category].includes(objet)) {
+                    if (type == "Tank" || type == "Enchanter" || type == "Mage") {
+                        return "All";
+                    }
+                    else
+                    return specialization;
+                }
+            }
+        }
+    }
+    return "All"; // Si aucune spécialisation spécifique n'est trouvée
+}
+
+function verificationObjet(championName, objet) {
+    // Récupérer le type et la spécialisation du champion
+    const championType = getChampionType(championName);
+    console.log(championType);
+    const championSpecialization = getChampionSpecialization(championName);
+    console.log(championSpecialization);
+    
+    // Récupérer le type et la spécialisation de l'objet
+    const itemType = getItemType(objet);
+    const itemSpecialization = getItemSpecialization(objet);
+
+    console.log(itemType);
+    console.log(itemSpecialization);
+    
+    // Comparer les spécialisation et types
+    console.log("oui");
+    if (championType === itemType && (itemSpecialization === championSpecialization || itemSpecialization === "All")) {
+        return true; // L'objet est adapté au champion
+    }
+    
+    return false; // L'objet n'est pas adapté
+}
