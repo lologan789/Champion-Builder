@@ -6,7 +6,7 @@ const champion =
             "Melee": [
             "Alistar",
             "Amumu",
-            "Blitcrank",
+            "Blitzcrank",
             "Braum",
             "Cho'Gath",
             "Galio",
@@ -77,7 +77,11 @@ const champion =
             "Viego",
             "Warwick",
             "Trundle",
-            "Jarvan IV"
+            "Jarvan IV",
+            "Rek'Sai",
+            "Olaf",
+            "Hecarim",
+            "Gangplank"
             ],
             "Range": [
             "Urgot",
@@ -90,7 +94,8 @@ const champion =
             "Melee": [
             "Yone",
             "Yasuo",
-            "Master Yi"
+            "Master Yi",
+            "Nilah"
             ],
             "Range": [
             "Akshan",
@@ -102,7 +107,7 @@ const champion =
             "Jhin",
             "Jinx",
             "Kalista",
-            "Kai'sa",
+            "Kai'Sa",
             "Kog'Maw",
             "Lucian",
             "Miss Fortune",
@@ -115,7 +120,8 @@ const champion =
             "Xayah",
             "Zeri",
             "Smolder",
-            "Senna"
+            "Senna",
+            "Corki"
             ]
         },
         "AP": {
@@ -161,7 +167,9 @@ const champion =
             "Zyra",
             "Zilean",
             "Seraphine",
-            "Vex"
+            "Vex",
+            "Morgana",
+            "Lillia"
             ]
         }
         },
@@ -189,7 +197,10 @@ const champion =
             "Zed",
             "Pyke",
             "Pantheon",
-            "Qiyana"
+            "Qiyana",
+            "Nocturne",
+            "Kayn",
+            "Kled"
             ],
             "Range": [
             "Graves",
