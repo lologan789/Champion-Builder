@@ -32,7 +32,6 @@
         const championNameElement = document.getElementById("champion-name");
         const championImageElement = document.getElementById("champion-image");
         const itemsContainer = document.getElementById("items-container");
-        const appItems = getAllItems();
 
         // Charger les données du champion
         if (championName) {
@@ -52,6 +51,8 @@
         }
 
         // Charger les données des items
+        const appItems = getAllItems();
+        console.log(appItems);
         fetch(itemApiUrl)
             .then(response => response.json())
             .then(data => {
@@ -60,11 +61,7 @@
                 // Filtrer et afficher les items où maps["30"] = true et group === "item"
                 for (const key in items) {
                     const item = items[key];
-                    console.log(item.name);
-                    if (item.maps && 
-                    appItems.array.forEach(element => {
-                        element == item.name;
-                    })) 
+                    if (item.maps && appItems.includes(item.name))
                     {
                         const itemDiv = document.createElement("div");
                         itemDiv.innerHTML = `

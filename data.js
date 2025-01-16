@@ -1,9 +1,3 @@
-attributs:
-    - Top / Mid / Bot / Jungle / Support
-    - Tank / Bruiser / Assassin / Mage / Marksman / Enchanter 
-    - AD / AP
-    - Melee / Ranged
-    
 const champion =
 {
     "Champions": {
@@ -440,14 +434,14 @@ const items =
   
 
 
-const getAllItems = (data) => {
-    const items = [];
+const getAllItems = () => {
+    const appItems = [];
 
     const traverse = (obj) => {
         for (const key in obj) {
             if (Array.isArray(obj[key])) {
                 // Si la valeur est une liste, on ajoute ses éléments
-                items.push(...obj[key]);
+                appItems.push(...obj[key]);
             } else if (typeof obj[key] === "object") {
                 // Si la valeur est un objet, on le parcourt récursivement
                 traverse(obj[key]);
@@ -455,9 +449,7 @@ const getAllItems = (data) => {
         }
     };
 
-    traverse(data);
-    return items;
+    // Parcourt les données des items définies dans le même fichier
+    traverse(items);
+    return appItems;
 };
-
-const allItems = getAllItems(items);
-console.log(allItems);
