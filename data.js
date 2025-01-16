@@ -4,6 +4,195 @@ attributs:
     - AD / AP
     - Melee / Ranged
     
+
+const Champions =
+`
+Tank
+    AP
+        Melee
+            - Alistar
+            - Amumu
+            - Blitcrank
+            - Braum
+            - Cho'Gath
+            - Galio
+            - Gragas
+            - Leona
+            - Malphite
+            - Maokai
+            - Nautilus
+            - Ornn
+            - Tahm Kench
+            - Taric
+            - Zac
+            - Rammus
+            - Sejuani
+            - Shen
+            - Dr.Mundo
+            - Rell
+
+    AD
+        Melee
+            - Poppy  
+            - Sion
+            - Illaoi
+            - K'Sante
+            
+Bruiser
+    AP
+        Melee
+            - Shyvana
+            - Diana
+            - Mordekaiser
+            - Rumble
+            - Singed
+            - Gwen
+            - Sylas
+            - Udyr
+            - Volibear
+            
+        Range
+    AD
+        Melee
+            - Aatrox
+            - Ambessa
+            - Bel'Veth
+            - Briar
+            - Camille
+            - Darius
+            - Wukong
+            - Garen
+            - Sett
+            - Yorick
+            - Jax
+            - Xin Zhao
+            - Lee Sin
+            - Vi
+            - Irelia
+            - Riven
+            - Fiora
+            - Renekton
+            - Nasus
+            - Tryndamere
+
+        Range
+            - Urgot
+            - Gnar
+
+Marksman
+    AD
+        Melee
+            - Yone 
+            - Yasuo
+        Range
+            - Akshan
+            - Aphelios
+            - Ashe
+            - Caitlyn
+            - Draven
+            - Ezreal
+            - Jhin
+            - Jinx
+            - Kalista
+            - Kai'sa
+            - Kog'Maw
+            - Lucian
+            - Miss Fortune
+            - Samira
+            - Sivir
+            - Tristana
+            - Twitch
+            - Varus
+            - Vayne
+            - Xayah
+            - Zeri
+
+Mage
+    AP
+        Melee
+            - Kassadin
+
+        Range
+            - Ahri
+            - Anivia
+            - Annie
+            - Aurelion Sol
+            - Aurora
+            - Azir
+            - Brand
+            - Cassiopeia
+            - Fiddlesticks
+            - Heimerdinger
+            - Karthus
+            - Kennen
+            - Lissandra
+            - Vladimir
+            - Lux
+            - Malzahar
+            - Neeko
+            - Orianna
+            - Ryze
+            - Swain
+            - Syndra
+            - Taliyah
+            - Twisted Fate
+            - Veigar
+            - Vel'Koz
+            - Viktor
+            - Xerath
+            - Ziggs
+            - Zoe
+            - Zyra
+            - Zilean
+            - Seraphine
+
+Assassin
+    AP
+        Melee
+            - Akali
+            - Ekko
+            - Evelynn
+            - Fizz
+            - Katarina
+            
+        Range
+            - LeBlanc
+            - Nidalee
+            - Elise
+
+    AD
+        Melee
+            - Kha'Zix
+            - Rengar
+            - Shaco
+            - Talon
+            - Zed
+            - Pyke
+            - Pantheon
+            - Qiyana
+            
+        Range
+            - Graves
+            - Quinn
+            - Kindred
+            - Jayce
+
+Enchanter
+    AP
+        Melee
+            - Rakan
+
+        Range
+            - Bard
+            - Ivern
+            - Janna
+            - Karma
+            - Lulu
+            - Nami
+            - Sona
+            - Soraka
+            - Yuumi
+`
 const Toplaner =
 `
 Tank
