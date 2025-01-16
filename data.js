@@ -547,19 +547,13 @@ function getItemSpecialization(objet) {
 function verificationObjet(championName, objet) {
     // Récupérer le type et la spécialisation du champion
     const championType = getChampionType(championName);
-    console.log(championType);
     const championSpecialization = getChampionSpecialization(championName);
-    console.log(championSpecialization);
     
     // Récupérer le type et la spécialisation de l'objet
     const itemType = getItemType(objet);
     const itemSpecialization = getItemSpecialization(objet);
-
-    console.log(itemType);
-    console.log(itemSpecialization);
     
     // Comparer les spécialisation et types
-    console.log("oui");
     if (championType === itemType && (itemSpecialization === championSpecialization || itemSpecialization === "All")) {
         return true; // L'objet est adapté au champion
     }
