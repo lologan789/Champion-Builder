@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Champions LoL</title>
+    <title>Chanpion Builder</title>
 </head>
+<header>
+    <h1>Champions LoL</h1>
+</header>
 <body>
-    <h1>Images des Champions LoL</h1>
-    <div id="champions-container" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+    <div id="champions-container" style="display: flex; flex-wrap: wrap; gap: 10px; padding: 2%;"></div>
 
+    <script src='data.js'></script>
     <script>
         // URL de l'API Data Dragon
         const apiUrl = "https://ddragon.leagueoflegends.com/cdn/15.1.1/data/en_US/champion.json";
@@ -35,7 +38,7 @@
                     const championDiv = document.createElement("div");
                     championDiv.style.textAlign = "center";
                     championDiv.innerHTML = `
-                        <a href="champion.html?name=${champion.id}">
+                        <a href="champion.html?name=${champion.id}" style="cursor:pointer;">
                             <img src="${imagePath}" alt="${champion.name}" style="width: 100px; height: auto;">
                         </a>
                         <p>${champion.name}</p>
@@ -50,4 +53,7 @@
             });
     </script>
 </body>
+<footer>
+    <p>© 2021 - Champion Builder</p>
+</footer>
 </html>
