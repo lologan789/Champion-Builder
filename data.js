@@ -25,7 +25,7 @@ const champion =
             "Dr.Mundo",
             "Rell",
             "Skarner",
-            "Nunu & Willump"
+            "Nunu"
             ],
             "Range": ["Thresh"]
         },
