@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champion et Items</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #champion-container img {
+            width: 150px;
+            height: auto;
+        }
+        #items-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        #items-container div {
+            text-align: center;
+        }
+        #items-container img {
+            width: 48px;
+            height: 48px;
+        }
+    </style>
+</head>
+<body>
+    <div id="champion-container">
+        <h1 id="champion-name">Nom du Champion</h1>
+        <img id="champion-image" src="" alt="Champion Image">
+    </div>
+    <h2>Items disponibles</h2>
+    <div id="items-container"></div>
+
+    <script>
+        // Récupérer le paramètre d'URL pour le nom du champion
+        const urlParams = new URLSearchParams(window.location.search);
+        const championName = urlParams.get('name');
+
+        // Base URL de l'API Data Dragon
+        const championApiUrl = "https://ddragon.leagueoflegends.com/cdn/15.1.1/data/en_US/champion/";
+        const itemApiUrl = "https://ddragon.leagueoflegends.com/cdn/15.1.1/data/en_US/item.json";
+
+        // Base URL pour les images
+        const championImageBaseUrl = "https://ddragon.leagueoflegends.com/cdn/15.1.1/img/champion/";
+        const itemImageBaseUrl = "https://ddragon.leagueoflegends.com/cdn/15.1.1/img/item/";
+
+        // Conteneurs
+        const championNameElement = document.getElementById("champion-name");
+        const championImageElement = document.getElementById("champion-image");
+        const itemsContainer = document.getElementById("items-container");
+
+        // Charger les données du champion
+        if (championName) {
+            fetch(`${championApiUrl}${championName}.json`)
+                .then(response => response.json())
+                .then(data => {
+                    const championData = data.data[championName];
+                    championNameElement.textContent = championData.name;
+                    championImageElement.src = championImageBaseUrl + championData.image.full;
+                })
+                .catch(error => {
+                    console.error("Erreur lors de la récupération des données du champion :", error);
+                    championNameElement.textContent = "Champion non trouvé";
+                });
+        } else {
+            championNameElement.textContent = "Aucun champion sélectionné";
+        }
+
+        // Charger les données des items
+        fetch(itemApiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const items = data.data;
+
+                // Filtrer et afficher les items où maps["30"] = true et group === "item"
+                for (const key in items) {
+                    const item = items[key];
+                    if (item.maps && item.maps["30"] === true && item.maps["11"] === false && item.maps["12"] === false && item.maps["21"] === false && item.maps["22"] === false && item.maps["33"] === false && item.image.group === "item" && item.gold.purchasable === true) {
+                        const itemDiv = document.createElement("div");
+                        itemDiv.innerHTML = `
+                            <img src="${itemImageBaseUrl}${item.image.full}" alt="${item.name}">
+                            <p>${item.name}</p>
+                        `;
+                        itemsContainer.appendChild(itemDiv);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error("Erreur lors de la récupération des données des items :", error);
+            });
+    </script>
+</body>
+</html>

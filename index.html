@@ -1,19 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Champion Builder</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champions LoL</title>
 </head>
 <body>
-    <header>
-        <h1>Champion Builder</h1>
-    </header>
-    <p>Yo</p>
-    <footer>
-        <p>Champion Builder</p>
-        <p>Les Loosers</p>
-        <p>2025</p>
-    </footer>
+    <h1>Images des Champions LoL</h1>
+    <div id="champions-container" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+
+    <script>
+        // URL de l'API Data Dragon
+        const apiUrl = "https://ddragon.leagueoflegends.com/cdn/15.1.1/data/en_US/champion.json";
+
+        // Base URL pour les images
+        const baseImageUrl = "https://ddragon.leagueoflegends.com/cdn/15.1.1/img/champion/";
+
+        // Conteneur pour afficher les champions
+        const container = document.getElementById("champions-container");
+
+        // Récupérer les données des champions
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const champions = data.data;
+
+                // Parcourir les champions et créer des éléments HTML
+                for (const key in champions) {
+                    const champion = champions[key];
+                    const imagePath = baseImageUrl + champion.image.full;
+
+                    // Créer un élément pour chaque champion
+                    const championDiv = document.createElement("div");
+                    championDiv.style.textAlign = "center";
+                    championDiv.innerHTML = `
+                        <a href="champion.html?name=${champion.id}">
+                            <img src="${imagePath}" alt="${champion.name}" style="width: 100px; height: auto;">
+                        </a>
+                        <p>${champion.name}</p>
+                    `;
+
+                    // Ajouter au conteneur
+                    container.appendChild(championDiv);
+                }
+            })
+            .catch(error => {
+                console.error("Erreur lors de la récupération des données :", error);
+            });
+    </script>
 </body>
 </html>
