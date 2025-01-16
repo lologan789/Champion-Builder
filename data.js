@@ -288,7 +288,7 @@ const items =
           "Blackfire Torch"
         ],
         "HP": [
-          "Rylai",
+          "Rylai's Crystal Scepter",
           "Liandry"
         ],
         "Durability": [
@@ -399,7 +399,7 @@ const items =
       ],
       "Poke": [
         "Blackfire Torch",
-        "Liandry",
+        "Liandry's Torment",
         "Morellonomicon"
       ],
       "CDR": [
@@ -408,38 +408,57 @@ const items =
       ]
     },
     "Marksman": {
-      "Damage": [
-        "The Collector"
-      ],
-      "AS": [
-        "Static Shiv",
-        "Rapid Firecannon",
-        "Runaan's Hurricane"
-      ],
-      "Crit": [
-        "Infinity Edge",
-        "Yun Tal Wildarrows",
-        "Collector"
-      ],
-      "Lifesteal": [
-        "Bloodthirster",
-        "Blade of the Ruined King"
-      ],
-      "ArmorPen": [
-        "Lord Dominik's Regards",
-        "Mortal Reminder"
-      ],
-      "Mobility": [
-        "Phantom Dancer"
-      ],
-      "OnHit": [
-        "Kraken Slayer",
-        "Guinsoo's Rageblade",
-        "Terminus"
-      ],
-      "Survivability": [
-        "Guardian Angel"
-      ]
+      "AD": {
+        "Damage": [
+            "The Collector"
+        ],
+        "AS": [
+            "Static Shiv",
+            "Rapid Firecannon",
+            "Runaan's Hurricane"
+        ],
+        "Crit": [
+            "Infinity Edge",
+            "Yun Tal Wildarrows",
+        ],
+        "Lifesteal": [
+            "Bloodthirster",
+            "Blade of the Ruined King"
+        ],
+        "ArmorPen": [
+            "Lord Dominik's Regards",
+            "Mortal Reminder"
+        ],
+        "Mobility": [
+            "Phantom Dancer"
+        ],
+        "OnHit": [
+            "Kraken Slayer",
+            "Guinsoo's Rageblade",
+            "Terminus"
+        ],
+        "Survivability": [
+            "Guardian Angel"
+        ]
+      },
+      "AP": {
+        "Damage": [
+            "Lich Bane",
+            "Liandry's Torment",
+            "Malignance",
+            "Rabadon's Deathcap",
+            "Shadowflame",
+            "Rylai's Crystal Scepter"
+        ],
+        "AS": [
+            "Nashor's Tooth",
+            "Guinsoo's Rageblade"
+        ],
+        "Survivability": [
+            "Zhonya's Hourglass",
+            "Banshee's Veil"
+        ]
+      }
     }
 }
   
