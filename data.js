@@ -513,17 +513,18 @@ function getChampionSpecialization(championName) {
 }
 
 function getItemType(objet) {
+  const listSpecialization = [];
     // Vérifier le type de l'objet (Tank, Bruiser, etc.)
     for (let type in items) {
         for (let specialization in items[type]) {
             for (let category in items[type][specialization]) {
                 if (items[type][specialization][category].includes(objet)) {
-                    return type;
+                    listSpecialization.push(type);
                 }
             }
         }
     }
-    return null; // Si l'objet n'est pas trouvé
+    return listSpecialization;
 }
 
 function getItemSpecialization(objet) {
@@ -533,7 +534,7 @@ function getItemSpecialization(objet) {
             for (let category in items[type][specialization]) {
                 if (items[type][specialization][category].includes(objet)) {
                     if (type == "Tank" || type == "Enchanter" || type == "Mage") {
-                        return "All";
+                      return 'All';
                     }
                     else
                     return specialization;
@@ -541,17 +542,25 @@ function getItemSpecialization(objet) {
             }
         }
     }
-    return "All"; // Si aucune spécialisation spécifique n'est trouvée
+    return 'All'; // Si la spécialisation n'est pas trouvée
 }
 
 function verificationObjet(championName, objet) {
     // Récupérer le type et la spécialisation du champion
+    console.log(championName);
     const championType = getChampionType(championName);
     const championSpecialization = getChampionSpecialization(championName);
+    console.log(championType, championSpecialization);
     
     // Récupérer le type et la spécialisation de l'objet
-    const itemType = getItemType(objet);
+    let itemType = getItemType(objet);
     const itemSpecialization = getItemSpecialization(objet);
+    if (itemType.length > 1) {
+      if (itemType.includes(championType)) {
+        itemType = championType;
+      }
+    }
+    console.log(itemType, itemSpecialization);
     
     // Comparer les spécialisation et types
     if (championType === itemType && (itemSpecialization === championSpecialization || itemSpecialization === "All")) {
