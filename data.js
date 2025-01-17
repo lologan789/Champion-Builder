@@ -8,7 +8,7 @@ const champion =
             "Amumu",
             "Blitzcrank",
             "Braum",
-            "Cho'Gath",
+            "ChoGath",
             "Galio",
             "Gragas",
             "Leona",
@@ -16,7 +16,7 @@ const champion =
             "Maokai",
             "Nautilus",
             "Ornn",
-            "Tahm Kench",
+            "TahmKench",
             "Taric",
             "Zac",
             "Rammus",
@@ -34,7 +34,7 @@ const champion =
             "Poppy",
             "Sion",
             "Illaoi",
-            "K'Sante"
+            "KSante"
             ]
         }
         },
@@ -56,7 +56,7 @@ const champion =
             "Melee": [
             "Aatrox",
             "Ambessa",
-            "Bel'Veth",
+            "BelVeth",
             "Briar",
             "Camille",
             "Darius",
@@ -65,8 +65,8 @@ const champion =
             "Sett",
             "Yorick",
             "Jax",
-            "Xin Zhao",
-            "Lee Sin",
+            "XinZhao",
+            "LeeSin",
             "Vi",
             "Irelia",
             "Riven",
@@ -77,8 +77,8 @@ const champion =
             "Viego",
             "Warwick",
             "Trundle",
-            "Jarvan IV",
-            "Rek'Sai",
+            "JarvanIV",
+            "RekSai",
             "Olaf",
             "Hecarim",
             "Gangplank"
@@ -94,7 +94,7 @@ const champion =
             "Melee": [
             "Yone",
             "Yasuo",
-            "Master Yi",
+            "MasterYi",
             "Nilah"
             ],
             "Range": [
@@ -110,7 +110,7 @@ const champion =
             "Kai'Sa",
             "Kog'Maw",
             "Lucian",
-            "Miss Fortune",
+            "MissFortune",
             "Samira",
             "Sivir",
             "Tristana",
@@ -138,7 +138,7 @@ const champion =
             "Ahri",
             "Anivia",
             "Annie",
-            "Aurelion Sol",
+            "AurelionSol",
             "Aurora",
             "Azir",
             "Brand",
@@ -157,7 +157,7 @@ const champion =
             "Swain",
             "Syndra",
             "Taliyah",
-            "Twisted Fate",
+            "TwistedFate",
             "Veigar",
             "Vel'Koz",
             "Viktor",
@@ -183,7 +183,7 @@ const champion =
             "Katarina"
             ],
             "Range": [
-            "LeBlanc",
+            "Leblanc",
             "Nidalee",
             "Elise"
             ]
@@ -273,7 +273,7 @@ const items =
         "Durability": [
           "Guardian Angel",
           "Spirit Visage",
-          "Sterak Gage",
+          "Sterak's Gage",
           "Death's Dance",
           "Malmortius",
           "Sundered Sky",
